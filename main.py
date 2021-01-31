@@ -6,7 +6,7 @@ question_bank = [Question(q['question'], q['correct_answer']) for q in question_
 
 host = QuizBrain(question_bank)
 
-while host.still_has_questions():
+while host.questions_left():
     host.next_question()
     print("\n")
 
