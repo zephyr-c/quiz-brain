@@ -3,7 +3,13 @@ TRIVIA_URL = "https://opentdb.com/api.php?amount=10"
 
 
 payload = {'category': 9, 'difficulty': 'easy', 'type': 'boolean'}
-results = requests.get()
+res = requests.get(TRIVIA_URL, payload)
+results = res.json()
+
+question_data = results['results']
+
+# print(question_data)
+
 
 # question_data = [
 #     {"category": "General Knowledge",
