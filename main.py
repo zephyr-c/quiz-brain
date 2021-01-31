@@ -1,8 +1,11 @@
-from data import question_data
+import html
+from data import get_questions
 from question_model import Question
 from quiz_brain import QuizBrain
 
-question_bank = [Question(q['question'], q['correct_answer']) for q in question_data]
+difficulty = input("Choose your level(easy/medium/hard): ")
+question_data = get_questions(difficulty)
+question_bank = [Question(text=html.unescape(q['question']), answer=q['correct_answer']) for q in question_data]
 
 host = QuizBrain(question_bank)
 

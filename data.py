@@ -1,12 +1,12 @@
 import requests
 TRIVIA_URL = "https://opentdb.com/api.php?amount=10"
 
+def get_questions(level):
+    payload = {'category': 9, 'difficulty': level.lower(), 'type': 'boolean'}
+    res = requests.get(TRIVIA_URL, payload)
+    results = res.json()
 
-payload = {'category': 9, 'difficulty': 'easy', 'type': 'boolean'}
-res = requests.get(TRIVIA_URL, payload)
-results = res.json()
-
-question_data = results['results']
+    return results['results']
 
 # print(question_data)
 
